@@ -16,16 +16,16 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
+
                   <h4 class="card-title">Ajouter-un-bien-immobiler</h4>
-      
+
                   <div class="table-responsive">
-                  <form action="{{route('update.bienImmobielier')}}" method="POST" enctype="multipart/form-data">
+                  <form action="{{route('update.bienImmobilier')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Titre</label>
@@ -55,7 +55,7 @@
                       <select name="categorie_id" id="">
                       <option value="{{$bien->categorie_id}}">{{$bien->categorie->categorie}}</option>
                         @foreach ($categorie as $cat )
-                        
+
                         <option value="{{$cat->id}}">{{$cat->categorie}}</option>
                         @endforeach
                       </select>
@@ -86,9 +86,9 @@
                 </div>
               </div>
             </div>
-           
-            
-            
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -110,10 +110,10 @@
 
     <!-- Button trigger modal -->
 
-  
 
 
-   
+
+
 @if ($errors->any())
 <div class="alert alert-danger">
     <ul>

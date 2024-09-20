@@ -9,6 +9,12 @@ class DetailsReglement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'reglement_id',
+        'mois',
+        'annee',
+    ];
+
     public function reglement()
     {
         return $this->belongsTo(Reglement::class);

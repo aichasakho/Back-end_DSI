@@ -16,14 +16,14 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
+
+
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
+
                   <h4 class="card-title">Demandes de visites</h4>
-                 
+
 
                   <p class="card-description">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -46,15 +46,15 @@
                           <th>
                             Tel
                           </th>
-                          
+
                           <th>
                               Status
                             </th>
                             <th>
                               Date
                             </th>
-                          
-                         
+
+
                         </tr>
                       </thead>
                       <tbody>
@@ -83,7 +83,7 @@
                             {{$visite->date_propose}}
 
                           </td>
-                         
+
                         </tr>
                       </tbody>
                     </table>
@@ -91,9 +91,9 @@
                 </div>
               </div>
             </div>
-           
-            
-            
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -116,13 +116,13 @@
     <!-- Button trigger modal -->
 
 
-   
+
 <!-- Button trigger modal -->
 
-  
+
   <!-- Modal -->
   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -141,7 +141,7 @@
               </div>
               <input type="hidden" name="id" value="{{$visite->id}}">
             </div>
-  
+
             <!-- Submit button -->
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -152,7 +152,7 @@
       </div>
     </div>
   </div>
-  
+
 
   </div>
    @include("admin.pages.js")

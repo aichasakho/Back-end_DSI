@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('numero_reglement');
             $table->string('nom');
 
+            // Relation avec le contrat
+            $table->bigInteger('contrat_id')->unsigned();
+            $table->foreign('contrat_id')->references('id')->on('contrats');
+
             // Relation avec l'agent
             $table->bigInteger('agent_id')->unsigned();
             $table->foreign('agent_id')->references('id')->on('users');

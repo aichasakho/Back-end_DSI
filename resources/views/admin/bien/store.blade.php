@@ -6,7 +6,7 @@
 
 <body>
   <div class="container-scroller d-flex">
-     @include("admin.pages.sidebar")
+    @include("admin.pages.sidebar")
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:../../partials/_navbar.html -->
@@ -16,75 +16,60 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
-            
-            
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                   
-                  <h4 class="card-title">Ajouter-un-bien-immobiler</h4>
-      
+
+                  <h1 class="card-title mb-5">Ajouter un Appartement</h1>
+
+                  <h4>
+                    <a href="{{ route('add.immeuble') }}">
+                      <button class="btn btn-info"> Ajouter un nouvel immeuble </button>
+                    </a>
+                  </h4>
+
                   <div class="table-responsive">
-                  <form action="{{route('bienImmobilier.store')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Titre</label>
-                  <input type="text" name="titre" value="{{old('titre')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Superficie</label>
-                  <input type="text" name="superficie" value="{{old('superficie')}}" class="form-control" id="exampleInputPassword1">
-                </div>
+                    <form action="{{ route('store.immeuble') }}" method="POST" enctype="multipart/form-data">
+                      @csrf
 
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Prix-location</label>
-                    <input type="number" name="prix_location" value="{{old('prix_location')}}" class="form-control" id="exampleInputPassword1">
-                  </div>
+                      <div class="my-3">
+                        <label for="immeuble" class="form-label">Selectionner un Immeuble existant</label>
+                        <select class="form-select" name="immeuble_id" id="immeuble"
+                          aria-label="Selectionner un immeuble">
+                          @foreach ($immeubles as $key => $val)
+                          <option value="{{ $key }}">{{ $val }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="type_de_bail" class="form-label">Type de bail</label>
+                        <select class="form-select" name="type_de_bail" id="type_de_bail">
+                          <option value="Appartement">Appartement</option>
+                          <option value="Bureau">Bureau</option>
+                          <option value="Studio">Studio</option>
+                          <option value="Commerce">Commerce</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="nbr_piece" class="form-label">Nombre de pièce</label>
+                        <input type="number" max="10" name="nbr_piece" class="form-control" id="nbr_piece" placeholder="3">
+                      </div>
 
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Status</label>
-                      <select name="status" id="">
-                        <option value="true">Disponible</option>
-                        <option value="false">Non-Disponible</option>
-                      </select>
-                  </div>
+                      <div class="mb-3">
+                        <label for="montant" class="form-label">Montant de la caution</label>
+                        <input type="number" name="montant_caution" class="form-control" id="montant" placeholder="100000">
+                      </div>
 
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Catégorie</label>
-                      <select name="categorie_id" id="">
-                        @foreach ($categorie as $cat )
-                        
-                        <option value="{{$cat->id}}">{{$cat->categorie}}</option>
-                        @endforeach
-                      </select>
-                  </div>
-
-
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Proprietaire</label>
-                      <select name="proprietaire_id" id="">
-                        @foreach ($user as $proprio )
-                        
-                        <option value="{{$proprio->id}}">{{$proprio->nom}}</option>
-                        @endforeach
-                      </select>
-                  </div>
-
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Profile</label>
-                    <input type="file" name="image" class="form-control" id="exampleInputPassword1">
-                  </div>
-
-               
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
-              </form>
+                <button type="submit" class="btn btn-info">Enregistrer</button>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
-           
-            
-            
+
+
+
+
           </div>
         </div>
         <!-- content-wrapper ends -->
@@ -93,8 +78,11 @@
           <div class="card">
             <div class="card-body">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright ©
+                  bootstrapdash.com 2020</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a
+                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard
+                    templates</a> from Bootstrapdash.com</span>
               </div>
             </div>
           </div>
@@ -106,23 +94,23 @@
 
     <!-- Button trigger modal -->
 
-  
 
 
-   
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
+
+
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+        <li>{{ $error }}</li>
         @endforeach
-    </ul>
-</div>
-@endif
+      </ul>
+    </div>
+    @endif
 
     <!-- page-body-wrapper ends -->
-  </div>
-   @include("admin.pages.js")
+  @include("admin.pages.js")
 </body>
 
 </html>

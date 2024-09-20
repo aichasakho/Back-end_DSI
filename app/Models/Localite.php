@@ -9,6 +9,12 @@ class Localite extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'ville',
+        'quartier',
+        'region',
+    ];
+
     public function bien_immobiliers(){
         return $this->hasMany(BienImmobilier::class);
     }

@@ -9,6 +9,14 @@ class Annonce extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'bien_immobilier_id',
+        'type_annonce',
+        'description',
+        'statut',
+        'prix',
+        'image',
+    ];
     public function bienImmobilier() {
         return $this->belongsTo(BienImmobilier::class);
     }

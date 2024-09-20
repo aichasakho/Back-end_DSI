@@ -24,9 +24,9 @@
 
                   <h4 class="card-title">Liste des Utilisateurs</h4>
 
-
                   <p class="card-description">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
                         Ajouter-un-Utilisateur
                       </button>
                   </p>
@@ -35,7 +35,7 @@
                       <thead>
                         <tr>
                           <th>
-                       Profile
+                            Profile
                           </th>
                           <th>
                             Nom
@@ -59,9 +59,9 @@
                       <tbody>
                          @foreach($usersAll as $user)
                         <tr>
-                        
+
                           <td class="py-1">
-                            {{$user->nom}} {{ $user->prenom }} 
+                            {{$user->nom}} {{ $user->prenom }}
 
                           </td>
                           <td>

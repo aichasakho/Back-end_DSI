@@ -9,6 +9,17 @@ class Contrat extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'bien_immobilier_id',
+        'client_id',
+        'agent_id',
+        'proprietaire_id',
+        'date_debut',
+        'date_fin',
+        'montant',
+        'type_contrat',
+    ];
+
     public function bien_immobilier(){
         return $this->belongsTo(BienImmobilier::class);
     }

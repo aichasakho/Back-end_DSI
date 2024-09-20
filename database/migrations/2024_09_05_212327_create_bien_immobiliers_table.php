@@ -27,7 +27,6 @@ return new class extends Migration
             $table->foreign('agent_id')->references('id')->on('users');
 
 
-
             // type maison
             $table->float('superficie')->nullable();
             $table->float('nbr_piece')->nullable();
@@ -39,9 +38,11 @@ return new class extends Migration
             // type immeuble
             $table->string('nom_immeuble')->nullable();
             $table->integer('nbr_etage')->nullable();
-            $table->float('date_construction')->nullable();
+            $table->date('date_construction')->nullable();
 
             $table->boolean('etat')->default(true);
+            $table->boolean('is_archived')->default(0);
+
             $table->timestamps();
         });
     }

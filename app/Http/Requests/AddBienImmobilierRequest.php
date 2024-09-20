@@ -46,7 +46,6 @@ class AddBienImmobilierRequest extends FormRequest
             'proprietaire_id.exists'=>'Le proprietaire  est introuvable !',
             'categorie_id.required'=>'Veuillez choisir la catégorie',
             'categorie_id.exists'=>'La catégorie  est introuvable !',
-
         ];
     }
 }

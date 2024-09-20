@@ -28,14 +28,21 @@ class AdminController extends Controller
     }
 
     /**
+     * Affiche le formulaire de d'inscription
+     */
+    public function register(){
+        return view("admin.account.register");
+    }
+
+    /**
      * Authentifie un utilisateur avec ses informations d'identification.
      */
 
     public function doLogin(Request $request){
 
         $request->validate([
-           'email'=>'required',
-           'password'=>'required'
+            'email'=>'required',
+            'password'=>'required'
         ],[
             'email.required'=>'L email est requis dans le formulaire',
             'password.required'=>'Le mots de passe est requis dans le formulaire'
@@ -43,14 +50,42 @@ class AdminController extends Controller
         ]);
 
         if(!Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
-                      toastr()->error('Information introuvable');
-                      return back();
+            toastr()->error('Information introuvable');
+            return back();
         }
         toastr()->info('Bienvenue !'.Auth::user()->nom);
 
         return redirect()->route('home.admin');
 
     }
+
+
+
+    public function doRegister(Request $request){
+
+        $request->validate([
+            'prenom'=>'required',
+            'nom'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+        ],[
+            'prenom.required'=>'Le prenom est requis dans le formulaire',
+            'nom.required'=>'Le nom est requis dans le formulaire',
+            'email.required'=>'L email est requis dans le formulaire',
+            'password.required'=>'Le mots de passe est requis dans le formulaire'
+
+        ]);
+
+        if(!Auth::attempt(['prenom'=>$request->prenom, 'nom'=>$request->nom, 'email'=>$request->email,'password'=>$request->password])){
+            toastr()->error('Information introuvable');
+            return back();
+        }
+        toastr()->info('Bienvenue !'.Auth::user()->nom);
+
+        return redirect()->route('home.admin');
+
+    }
+
 
     /**
      * Enregistre un nouvel utilisateur dans la base de données.
@@ -60,14 +95,14 @@ class AdminController extends Controller
         if($request->password != $request->password_confirmation){
             return back()->with("error","Les mots de passes sont différents");
         }
-       
+
         $user = new User();
         $user->nom = $request->nom;
         $user->prenom = $request->prenom;
         $user->email = $request->email;
         $user->tel = $request->tel;
         $user->password = bcrypt($request->password);
-        
+
         $user->save();
         return redirect()->back()->with("success","Compte ajouté avec succes !");
     }

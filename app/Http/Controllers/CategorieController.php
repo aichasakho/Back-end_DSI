@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddCategorieRequest;
+use App\Http\Requests\AddTypeBienRequest;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 
@@ -33,7 +33,7 @@ class CategorieController extends Controller
      * Store a newly created resource in storage.
      * Enregistre une nouvelle catégorie dans la base de données
      */
-    public function store(AddCategorieRequest $request)
+    public function store(AddTypeBienRequest $request)
     {
 
        $categorie= new Categorie();

@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parcelle extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    public function bien_immobilier(){
-        return $this->belongsTo(BienImmobilier::class);
-    }
+  protected $fillable = [
+    'bien_immobilier_id',
+    'numero_parcelle',
+    'superficie',
+  ];
+  public function bienImmobilier()
+  {
+    return $this->belongsTo(BienImmobilier::class);
+  }
 }

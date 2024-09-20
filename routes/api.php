@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Api\BienImmobilierController;
+use App\Http\Controllers\Api\ReservationController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('annonces', [\App\Http\Controllers\Api\AnnonceController::class, 'index']);
+
+
+Route::get('annonces/{id}', [\App\Http\Controllers\Api\AnnonceController::class, 'show']);
+
+
+Route::apiResource('reservations', ReservationController::class);

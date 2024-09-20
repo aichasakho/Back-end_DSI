@@ -9,6 +9,22 @@ class BienImmobilier extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'type_bien_id',
+        'localite_id',
+        'agent_id',
+        'proprietaire_id',
+        'etat',
+        'superficie',
+        'nbre_piece',
+        'prix_achat',
+        'image',
+        'is_archived',
+        'date_construction',
+        'nbr_etage',
+        'nom_immeuble',
+        'prix',
+    ];
 
     public function localite(){
         return $this->belongsTo(Localite::class);

@@ -9,6 +9,7 @@ class TypeBien extends Model
 {
     use HasFactory;
 
+    protected $fillable = [ 'type_bien',];
     public function bien_immobiliers(){
         return $this->hasMany(BienImmobilier::class);
     }

@@ -9,6 +9,14 @@ class Reglement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'date_reglement',
+        'numero_reglement',
+        'contrat_id',
+        'nom',
+        'agent_id',
+    ];
+
     public function contrat(){
         return $this->belongsTo(Contrat::class);
     }
