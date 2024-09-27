@@ -1,0 +1,98 @@
+#contact {
+  padding: 40px 20px;
+  background: linear-gradient(to bottom right, #003366, #ffffff); /* Dégradé de bleu foncé à blanc */
+}
+
+.section-header {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #fff; /* Couleur blanche pour le texte sur fond dégradé */
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permet aux éléments de s'enrouler sur des écrans plus petits */
+  justify-content: space-between; /* Espace égal entre les colonnes */
+}
+
+.form-horizontal {
+  flex: 1; /* Prend l'espace disponible */
+  min-width: 300px; /* Largeur minimale pour le formulaire */
+  margin-right: 20px; /* Espacement à droite */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%; /* Prend toute la largeur du conteneur */
+  padding: 10px;
+  border: 1px solid #ccc; /* Bordure légère */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 16px; /* Taille de police */
+}
+
+textarea.form-control {
+  resize: vertical; /* Permet de redimensionner uniquement verticalement */
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #007bff; /* Couleur primaire */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de pointeur */
+  transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+.send-button:hover {
+  background-color: #0056b3; /* Couleur au survol */
+}
+
+.direct-contact-container {
+  flex: 1; /* Prend l'espace disponible */
+  min-width: 300px; /* Largeur minimale pour la colonne de contact */
+  padding: 20px;
+  background-color: #fff; /* Fond blanc pour le conteneur de contact */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.contact-list {
+  list-style: none; /* Supprime les puces par défaut */
+  padding: 0; /* Supprime le padding par défaut */
+}
+
+.list-item {
+  margin-bottom: 15px; /* Espacement entre les éléments de la liste */
+  display: flex;
+  align-items: center; /* Aligne les icônes et le texte verticalement */
+}
+
+.contact-text {
+  margin-left: 10px; /* Espacement à gauche du texte */
+  font-size: 16px; /* Taille de police */
+  color: #333; /* Couleur du texte */
+}
+
+hr {
+  border: 1px solid #e0e0e0; /* Bordure légère pour les séparateurs */
+  margin: 20px 0; /* Espacement vertical */
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column; /* Aligne les éléments verticalement sur petits écrans */
+  }
+
+  .form-horizontal {
+    margin-right: 0; /* Supprime l'espacement à droite */
+    margin-bottom: 20px; /* Espacement en bas */
+  }
+}
